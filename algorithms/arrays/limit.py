@@ -14,6 +14,10 @@ Complexity = O(n)
 
 # tl:dr -- array slicing by value
 def limit(arr, min_lim=None, max_lim=None):
+    # 1 True if min_lim is None else (min_lim <= val) 这个三元表达的
+    # 2 lambda val : 一个三元表达
+    # 赋值引用下
+ 
     min_check = lambda val: True if min_lim is None else (min_lim <= val)
     max_check = lambda val: True if max_lim is None else (val <= max_lim)
     
