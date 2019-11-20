@@ -8,6 +8,11 @@ Given "bbbbb", the answer is "b", with the length of 1.
 Given "pwwkew", the answer is "wke", with the length of 3.
 Note that the answer must be a substring,
 "pwke" is a subsequence and not a substring.
+
+要统计一个序列，需要一个计数器
+
+dict 的结构很适合
+
 """
 
 
@@ -20,9 +25,9 @@ def longest_non_repeat_v1(string):
         return 0
     dict = {}
     max_length = 0
-    j = 0
+    j = 0                                                                          # for 循环前进行初始化
     for i in range(len(string)):
-        if string[i] in dict:
+        if string[i] in dict:                                                      # in dict 直接判断key了...这个很方便
             j = max(dict[string[i]], j)
         dict[string[i]] = i + 1
         max_length = max(max_length, i - j + 1)
@@ -38,7 +43,7 @@ def longest_non_repeat_v2(string):
         return 0
     start, max_len = 0, 0
     used_char = {}
-    for index, char in enumerate(string):
+    for index, char in enumerate(string):                                          # 利用enumerate()也可以分成一个k: v 对
         if char in used_char and start <= used_char[char]:
             start = used_char[char] + 1
         else:
