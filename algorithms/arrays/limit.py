@@ -37,7 +37,25 @@ def limit1(text, store = []):       # 这种方式并不像
     store = []
     return text
     
-    
+https://blog.csdn.net/emaste_r/article/details/47358843
+当list等可变类型作为默认参数时，仅仅在定义函数的时候（也就是执行def语句）被计算一次，有且仅有这么一次
+其它的时候无论调用几次函数，如果没有传参进来，就会一直用这个默认参数了
+
+1、当list、dic等可变类型作为函数默认参数并且调用函数时没有传参的时候，要注意list、dic并不会自己清空。
+
+2、默认参数只在def语句被执行的时候计算一次。
+
+3、如果想要的话，把默认参数当成静态变量（也就是全局变量）也是一种抖机灵的好思路呢
+
+
+def limit3(text, store=None):
+    if store is None:
+        store = []
+    store.append(text)
+    print(store)
+    return text
+
+
 
 """
 
