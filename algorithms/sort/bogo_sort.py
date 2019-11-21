@@ -5,6 +5,9 @@ def bogo_sort(arr, simulation=False):
         Best Case Complexity: O(n)
         Worst Case Complexity: O(∞)
         Average Case Complexity: O(n(n-1)!)
+        
+        随机排序，
+        如果随机排没有成功，那么继续随机排序直到完成为止
     """
     
     iteration = 0
@@ -19,9 +22,8 @@ def bogo_sort(arr, simulation=False):
             if arr[i] > arr[i+1]:
                 return False
             i += 1
-            
-
         return True
+    
     while not is_sorted(arr):
         random.shuffle(arr)
         
